@@ -25,7 +25,7 @@ class TestStudentCode(object):
   """
 
 
-  def OpenCode(self):
+  def OpenCode(self, StudentCode):
     self.sc = StudentCode()
     print("Checking for init attributes:")
     try:
@@ -114,9 +114,9 @@ class TestStudentCode(object):
       print("FAIL: Function does not raise ValueError for invalid a_or_b")
       raise IOError("Student tests failed")
   
-  def test_student_code(self):
+  def test_student_code(self, StudentCode):
     try:
-      self.OpenCode()
+      self.OpenCode(StudentCode)
       self.Test1()
       self.Test2()
       self.Test3()
