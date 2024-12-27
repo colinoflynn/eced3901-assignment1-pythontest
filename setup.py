@@ -8,5 +8,5 @@ setup(
     author_email='coflynn@dal.ca',
     description='Very Dumb.',
     packages=find_packages(),    
-    install_requires=[]],
+    install_requires=[],
 )
