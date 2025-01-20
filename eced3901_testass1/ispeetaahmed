@@ -1,0 +1,43 @@
+class StudentCode(object):
+    def __init__(self, banner_number):
+        self.banner_number = str(banner_number)
+        
+        self.ConstA = int(self.banner_number[-1])  # Last digit
+        self.ConstB = int(self.banner_number[-2])  # Second to last digit
+
+    def get_constants(self):
+        return self.ConstA, self.ConstB
+
+    def int_banner(self):
+        # Extract the last 6 digits as a substring and return them as an integer
+        return int(self.banner_number[-6:])
+  
+      
+    def add_b_const(self, arg):
+        try:
+            if isinstance(arg, str):  # If argument is a string, attempt to convert to integer
+                arg = int(arg)  # Check if the string can be converted to an integer
+        
+            return arg + self.ConstB  # This should be inside the try block
+    
+        except ValueError:
+            # If the conversion fails, raise a TypeError
+            raise TypeError("Invalid argument: not a valid integer or string representing an integer.")
+
+    def add_a_or_b_const(self, x, a_or_b="a"):
+        if a_or_b == "a":
+            return x + self.ConstA # Add A constant
+        elif a_or_b == "b":
+            return x + self.ConstB # Add B constant
+        elif a_or_b == "":  
+            return x + self.ConstA  # If no `a_or_b` is passed, default to adding A constant.
+        else:
+           
+            raise ValueError("Invalid value for a_or_b: it must be 'a' or 'b' or omitted.")  # Raise ValueError if any other value for a_or_b is provided.
+
+def main():
+    # Example Banner Number
+    banner_number = "B00920913"
+
+    # Instantiate the class with the banner number
+    student_code = StudentCode(banner_number)
